@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini AI Bot 🤖</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0b0b0d; color: #fff;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 32px 20px 48px; }
+  .hero { text-align: center; padding: 24px 0 8px; }
+  .hero .bot { font-size: 64px; }
+  .hero h1 { font-size: 32px; margin: 8px 0 4px; }
+  .hero p { color: #a1a1aa; font-size: 16px; }
+  .brains { display: flex; gap: 10px; justify-content: center; margin: 18px 0 6px; flex-wrap: wrap; }
+  .brains span {
+    background: #17171a; border: 1px solid #2c2c31; border-radius: 999px;
+    padding: 8px 16px; font-size: 14px; font-weight: 600;
+  }
+  h2 { font-size: 20px; margin: 30px 0 12px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card {
+    background: #17171a; border: 1px solid #2c2c31; border-radius: 14px;
+    padding: 14px; font-size: 14px;
+  }
+  .card .e { font-size: 26px; }
+  .card b { display: block; margin: 4px 0 2px; font-size: 15px; }
+  .card small { color: #a1a1aa; }
+  .steps { background: #17171a; border: 1px solid #2c2c31; border-radius: 14px; padding: 16px; }
+  .step { display: flex; gap: 12px; margin: 12px 0; font-size: 14.5px; }
+  .step:first-child { margin-top: 0; }
+  .step:last-child { margin-bottom: 0; }
+  .n {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: #0a84ff; color: #fff; font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step code { background: #0b0b0d; border: 1px solid #2c2c31; border-radius: 6px; padding: 1px 7px; font-size: 13px; }
+  .cmds { background: #17171a; border: 1px solid #2c2c31; border-radius: 14px; padding: 16px; font-size: 14.5px; }
+  .cmds div { padding: 5px 0; border-bottom: 1px dashed #2c2c31; }
+  .cmds div:last-child { border-bottom: none; }
+  .cmds b { color: #7dd3fc; }
+  .get {
+    text-align: center; margin-top: 30px; padding: 20px;
+    background: #10233f; border: 1px solid #0a84ff; border-radius: 16px;
+  }
+  .get p { color: #c9e6ff; font-size: 14.5px; margin-bottom: 14px; }
+  .btn {
+    display: inline-block; background: #0a84ff; color: #fff; text-decoration: none;
+    font-weight: 700; padding: 12px 26px; border-radius: 12px; font-size: 15px;
+  }
+  .warn {
+    margin-top: 18px; padding: 12px 14px; font-size: 13.5px;
+    background: #2a2410; border: 1px solid #6b5a1e; border-radius: 12px; color: #ffe9a8;
+  }
+  footer { text-align: center; color: #636366; font-size: 12.5px; margin-top: 28px; }
+  @media (max-width: 420px) { .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="bot">🤖</div>
+    <h1>Mini AI Bot</h1>
+    <p>A tiny chatbot you run on your computer.<br>Pick its brain, then just talk to it.</p>
+    <div class="brains"><span>✨ Gemini</span><span>🧠 GPT</span></div>
+  </div>
+
+  <h2>What it can do</h2>
+  <div class="cards">
+    <div class="card"><div class="e">💬</div><b>Chat</b><small>Ask it anything, like talking to an AI friend.</small></div>
+    <div class="card"><div class="e">🌐</div><b>Websites</b><small>Say "website …" and it builds a page, saved as website.html.</small></div>
+    <div class="card"><div class="e">🖼️</div><b>Pictures</b><small>Say "picture …" and it draws it, saved as picture.png.</small></div>
+    <div class="card"><div class="e">🎬</div><b>Video plans</b><small>Say "video …" and it writes the plan, saved as video-plan.txt.</small></div>
+  </div>
+
+  <h2>How to run it</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div>Use a <b>computer</b> (Windows or Mac) — it doesn't run on a phone.</div></div>
+    <div class="step"><div class="n">2</div><div>Install Python from <b>python.org</b>.</div></div>
+    <div class="step"><div class="n">3</div><div>In a terminal, run: <code>pip install requests</code></div></div>
+    <div class="step"><div class="n">4</div><div>Get a <b>free</b> Gemini key at <b>aistudio.google.com/apikey</b> and paste it into <code>GEMINI_API_KEY</code> at the top of the file.</div></div>
+    <div class="step"><div class="n">5</div><div>Run it: <code>python mini_ai_bot.py</code> — then just type!</div></div>
+  </div>
+
+  <h2>Commands</h2>
+  <div class="cmds">
+    <div><b>ask</b> &lt;question&gt; — chat with the AI</div>
+    <div><b>website</b> &lt;idea&gt; — build a web page</div>
+    <div><b>picture</b> &lt;idea&gt; — draw a picture</div>
+    <div><b>video</b> &lt;idea&gt; — write a video plan</div>
+    <div><b>use gemini</b> / <b>use gpt</b> — switch brains</div>
+    <div><b>help</b> — show commands &nbsp;•&nbsp; <b>quit</b> — goodbye</div>
+  </div>
+
+  <div class="get">
+    <p>🐙 <b>Get the code</b><br>Download <b>mini_ai_bot.py</b> and <b>README.txt</b> from the GitHub repo, then follow the steps above.</p>
+    <a class="btn" href="https://github.com/drnithishbalaji-spec/Mini-buddy-v1">Open the repo</a>
+  </div>
+
+  <div class="warn">
+    🔑 <b>Keep your key secret.</b> Never upload the file with your real API key in it — the file on GitHub must always say <b>PASTE_YOUR_GEMINI_KEY_HERE</b>.
+  </div>
+
+  <footer>Made with Mr Buddy 🤖 • Mini AI Bot</footer>
+
+</div>
+</body>
+</html>
